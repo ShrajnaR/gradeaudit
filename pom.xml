@@ -11,23 +11,31 @@
 	<groupId>com.gradeaudit</groupId>
 	<artifactId>gradeaudit</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
-	<url/>
+	<name>GradeAudit</name>
+	<description>Audits LLM graders that score how candidates work with AI assistants</description>
+	<url>https://github.com/ShrajnaR/gradeaudit</url>
 	<licenses>
-		<license/>
+		<license>
+			<name>MIT License</name>
+			<url>https://opensource.org/license/mit</url>
+		</license>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+			<id>ShrajnaR</id>
+			<name>Shrajna R</name>
+			<url>https://github.com/ShrajnaR</url>
+		</developer>
 	</developers>
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection>scm:git:https://github.com/ShrajnaR/gradeaudit.git</connection>
+		<developerConnection>scm:git:https://github.com/ShrajnaR/gradeaudit.git</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/ShrajnaR/gradeaudit</url>
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+		<argLine>-Duser.timezone=UTC</argLine>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -110,5 +118,23 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<!-- Active only inside Eclipse (m2e). Works around eclipse-m2e/m2e-core#2084:
+			     maven-jar-plugin 3.5.0 makes m2e report "outside of a scoping block".
+			     Command-line and CI builds keep the version managed by Spring Boot.
+			     Remove this profile once m2e is fixed. -->
+			<id>eclipse-m2e</id>
+			<activation>
+				<property>
+					<name>m2e.version</name>
+				</property>
+			</activation>
+			<properties>
+				<maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
+			</properties>
+		</profile>
+	</profiles>
 
 </project>
