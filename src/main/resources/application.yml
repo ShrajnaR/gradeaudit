@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: gradeaudit
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gradeaudit
+    username: gradeaudit
+    password: gradeaudit
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
