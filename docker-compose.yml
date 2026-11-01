@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: gradeaudit-db
+    environment:
+      POSTGRES_DB: gradeaudit
+      POSTGRES_USER: gradeaudit
+      POSTGRES_PASSWORD: gradeaudit
+    ports:
+      - "5432:5432"
+    volumes:
+      - gradeaudit-data:/var/lib/postgresql/data
+
+volumes:
+  gradeaudit-data:
